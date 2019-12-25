@@ -30,5 +30,5 @@ defaults:
         path: ''
         type: pages
       values:
-        layout: base
+        layout: milligram
         meta_twitter: true

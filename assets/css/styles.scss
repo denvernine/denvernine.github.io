@@ -1,2 +1,45 @@
 ---
 ---
+@import 'colors/stripe';
+
+:root {
+  --header-height: auto;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.8;
+  color: $black;
+
+  overflow-wrap: break-word;
+  text-decoration-skip-ink: auto;
+}
+
+.pile {
+  margin-top: calc(-1 * var(--header-height));
+  padding-top: var(--header-height);
+}
+
+.header {
+  height: var(--header-height);
+  white-space: nowrap;
+  overflow: auto hidden;
+}
+
+.sticky {
+  position: sticky;
+
+  &.top {
+    top: 0;
+    z-index: 1101;
+  }
+
+  &.bottom {
+    bottom: 0;
+    z-index: 1101;
+  }
+}
+
+.unselectable {
+  user-select: none;
+}

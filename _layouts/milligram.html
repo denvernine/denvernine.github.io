@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+  <head>
+    <meta charset="{{ site.charset }}">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="{{ site.description }}">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <link rel="canonical" href="{{ site.github.url }}">
+    {% for icon in site.icons %}
+      <link rel="{{ icon.type }}" type="{{ icon.mime_type }}" sizes="{{ icon.size }}" href="{{ icon.path | absolute_url }}">
+    {% endfor %}
+    {% if page.meta_twitter %}
+      {% include meta_twitter.html %}
+    {% endif %}
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="{{ '/assets/css/normalize.css' | absolute_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/milligram.css' | absolute_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | absolute_url }}">
+    <script type="module" src="{{ '/assets/js/scripts.js' | absolute_url }}"></script>
+  </head>
+  <body class="container">
+    <header class="row sticky top">
+    </header>
+    <main class="row">
+      {{ content }}
+    </main>
+    <footer class="row">
+    </footer>
+  </body>
+</html>

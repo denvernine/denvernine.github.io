@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="{{ site.lang }}" dir="{{ site.direction }}">
+  <head>
+    <base href="{{ site.url }}">
+    <meta charset="{{ site.charset }}">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="{{ site.description }}">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <link rel="{{ icon.type }}" type="{{ icon.mime_type }}" sizes="{{ icon.size }}" href="{{ icon.path | absolute_url }}">
+    <link rel="canonical" href="{{ site.url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | absolute_url }}">
+    <script src="{{ 'assets/js/scripts.js' | absolute_url }}" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>{{ site.title }}</h1>
+    </header>
+    {{ content }}
+    <footer>
+      <small>&copy; {{ site.since | date: "%Y" }}-{{ 'now' | date: '%Y' }} {{ site.github_username }}</small>
+    </footer>
+  </body>
+</html>

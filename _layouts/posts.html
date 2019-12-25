@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+  <head>
+    <meta charset="{{ site.charset }}">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="{{ site.description }}">
+    <meta name="format-detection" content="telephone=no,email=no,address=no,date=no,url=no">
+    <link rel="canonical" href="{{ site.github.url }}">
+    {% for icon in site.icons %}
+      <link rel="{{ icon.type }}" type="{{ icon.mime_type }}" sizes="{{ icon.size }}" href="{{ icon.path | absolute_path }}">
+    {% endfor %}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@{{ site.twitter_username }}">
+    <meta name="twitter:creator" content="@{{ site.twitter_username }}">
+    <meta property="og:title" content="{{ page.title }} | {{ site.title }}">
+    {% if page.description %}
+      <meta property="og:description" content="{{ page.description }}">
+    {% endif %}
+    <meta property="og:image" content="{{ site.github.owner_gravatar_url }}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="{% link /assets/css/normalize.css %}">
+    <link rel="stylesheet" href="{{ '/assets/css/milligram.css' | absolute_path }}">
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | absolute_path }}">
+    <script type="module" src="{% link /assets/js/scripts.js %}"></script>
+  </head>
+  <body class="container">
+    <header>
+      <h1><a href="/"><span class="unselectable">/home/</span>denvernine<span class="unselectable">/</span></a></h1>
+    </header>
+    <main>
+      <h2>{{ page.title | capitalize }}</h2>
+
+      {{ content }}
+    </main>
+    <footer>
+      <small>&copy; {{ site.since | date: "%Y" }}-{{ 'now' | date: '%Y' }} {{ site.github_username }}</small>
+    </footer>
+  </body>
+</html>

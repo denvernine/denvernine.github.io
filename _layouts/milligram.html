@@ -4,28 +4,63 @@
     <meta charset="{{ site.charset }}">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="description" content="{{ site.description }}">
-    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta name="format-detection" content="telephone=no,email=no,address=no,date=no,url=no">
     <link rel="canonical" href="{{ site.github.url }}">
     {% for icon in site.icons %}
-      <link rel="{{ icon.type }}" type="{{ icon.mime_type }}" sizes="{{ icon.size }}" href="{{ icon.path | absolute_url }}">
+      <link rel="{{ icon.type }}" type="{{ icon.mime_type }}" sizes="{{ icon.size }}" href="{{ icon.path | absolute_path }}">
     {% endfor %}
     {% if page.meta_twitter %}
       {% include meta_twitter.html %}
     {% endif %}
     <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
-    <link rel="stylesheet" href="{{ '/assets/css/normalize.css' | absolute_url }}">
-    <link rel="stylesheet" href="{{ '/assets/css/milligram.css' | absolute_url }}">
-    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | absolute_url }}">
-    <script type="module" src="{{ '/assets/js/scripts.js' | absolute_url }}"></script>
+    <link rel="stylesheet" href="{% link /assets/css/normalize.css %}">
+    <link rel="stylesheet" href="{{ '/assets/css/milligram.css' | absolute_path }}">
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | absolute_path }}">
+    <script type="module" src="{% link /assets/js/scripts.js %}"></script>
   </head>
   <body class="container">
-    <header class="row sticky top">
+    <header>
+      <div class="row">
+        <h1><a href="/"><span class="unselectable">/home/</span>denvernine<span class="unselectable">/</span></a></h1>
+      </div>
+      <div class="row">
+        <p class="unselectable">
+          $ ls -ldF ~<br>
+          <span id="permission">drwx---r-x</span>
+          <span id="hardlink">{{ 3 | plus: site.categories.size }}</span>
+          <span id="owner">{{ site.title }}</span>
+          <span id="group">{{ site.title }}</span>
+          {% assign size = 0 %}
+          {% for page in site.pages %}
+            {% if page.title %}
+              {% assign size = size | plus: page.content.size %}
+            {% endif %}
+          {% endfor %}
+          {% for post in site.posts %}
+            {% if post.title %}
+              {% assign size = size | plus: post.content.size %}
+            {% endif %}
+          {% endfor %}
+          <span id="size">{{ size }}</span>
+          <span id="updated-at"><time datetime="{{ site.since | date: '%Y-%m-%dT%R%z' }}">{{ site.since | date: '%b %_2e %R %Y' }}</time></span>
+          <span id="filename">/home/{{ site.title }}/</span>
+      </div>
     </header>
-    <main class="row">
+    <main>
+      <h2>{{ page.title | capitalize }}</h2>
+
       {{ content }}
     </main>
-    <footer class="row">
+    <footer>
+      <p>$ cat ~/about</p>
+      <address>
+        twitter: <a href="https://twitter.com/{{ site.twitter_username }}">@{{ site.twitter_username }}</a><br>
+        github: <a href="https://github.com/{{ site.github_username }}">{{ site.github_username }}</a><br>
+        email: kiril.hack@gmail.com<br>
+        tel: +818084115920
+      </address>
+      <small>&copy; {{ site.since | date: "%Y" }}-{{ 'now' | date: '%Y' }} {{ site.github_username }}</small>
     </footer>
   </body>
 </html>

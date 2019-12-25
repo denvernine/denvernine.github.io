@@ -4,31 +4,35 @@ sass:
 
 # site settings
 lang: ja
-charset: utf-8
-title: denvernine
-description: you're under my control.
+direction: ltr
+charset: UTF-8
 timezone: Asia/Tokyo
-since: '2019-12-24 18:00'
-icons:
-    - type: icon
-      mime_type: image/x-icon
-      path: /assets/images/favicon.ico
-      size: 16x16
-    - type: apple-touch-icon
-      mime_type: image/png
-      path: /assets/images/apple-touch-icon.png
-      size: 256x256
+title: denvernine.
+description: &description you're under my control.
+since: 2019-12-24
+icon:
+  type: icon
+  mime_type: image/x-icon
+  path: /assets/images/favicon.ico
+  size: 16x16
 email: denvernine99@gmail.com
 phone: +818084115920
 twitter_username: nkiril
 github_username:  denvernine
+related_post_count: 5
 
 # page settings
-permalink: /:categories/:year:month:day-:slug:output_ext
+permalink: /:year/:month/:day/:title
 defaults:
     - scope:
         path: ''
         type: pages
       values:
-        layout: milligram
-        meta_twitter: true
+        layout: default
+        description: *description
+    - scope:
+        path: ''
+        type: posts
+      values:
+        layout: default
+        description: *description

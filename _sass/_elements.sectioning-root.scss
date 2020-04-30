@@ -1,6 +1,6 @@
-body {
+#{elements(sectioningRoot)} {
   writing-mode: horizontal-tb;
-  font-family: ten-mincho,serif,sans-serif,monospace;
+  font-family: serif,sans-serif,monospace;
   line-height: 1.5;
   letter-spacing: .12rem;
   word-spacing: .16rem;

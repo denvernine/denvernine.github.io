@@ -1,0 +1,99 @@
+@function listMerge($lists...) {
+  $result: ();
+
+  @each $list in $lists {
+    @if type-of($list) == string {
+      $result: append($result, $list);
+    } @else {
+      $result: join($result, $list);
+    }
+  }
+
+  @return $result;
+}
+
+@function listFill($value, $end, $start: 1) {
+  $array: ();
+
+  @for $i from $start through $end {
+    $array: append($array, $value);
+  }
+
+  @return $array;
+}
+
+@function elements($category) {
+  /**
+   * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+   */
+  $sectioningRoot: body;
+  $contentSectioning: address, article, aside, footer, header, h1, h2, h3, h4, h5, h6, main, nav, section;
+  $textContent: blockquote, dd, div, dl, dt, figcaption, figure, hr, li, /* main, */ ol, p, pre, ul;
+  $inlineTextSemantics: a, abbr, br, cite, code, dfn, em, i, kbd, mark, q, s, samp, small, span, strong, sub, sup, time, u, var, wbr;
+  $imageAndMultimedia: audio, img, video;
+  $embeddedContent: iframe, picture, source;
+  $scripting: script;
+  $demarcatingEdits: del, ins;
+  $tableContent: caption, col, colgroup, table, tbody, td, tfoot, th, thead, tr;
+  $forms: button, label, input, optgroup, option, select, textarea;
+  $intaractiveElements: details, summary;
+
+  /**
+   * @link https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories
+   */
+  $headingContent: h1, h2, h3, h4, h5, h6;
+
+  @return map-get((
+    sectioningRoot: $sectioningRoot,
+    contentSectioning: $contentSectioning,
+    textContent: $textContent,
+    inlineTextSemantics: $inlineTextSemantics,
+    imageAndMultimedia: $imageAndMultimedia,
+    embeddedContent: $embeddedContent,
+    scripting: $scripting,
+    demarcatingEdits: $demarcatingEdits,
+    tableContent: $tableContent,
+    forms: $forms,
+    intaractiveElements: $intaractiveElements,
+    headingContent: $headingContent,
+    all: listMerge($sectioningRoot, $contentSectioning, $textContent, $inlineTextSemantics, $imageAndMultimedia, $embeddedContent, $scripting, $demarcatingEdits, $tableContent, $forms, $intaractiveElements),
+  ), $category);
+}
+
+
+@function fontWeight($wight) {
+  /**
+   * @link https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight
+   */
+  @return map-get((
+    thin: 100,
+    extra-light: 200,
+    light: 300,
+    normal: 400,
+    medium: 500,
+    semi-bold: 600,
+    bold: 700,
+    extra-bold: 800,
+    heavy: 900,
+  ), $wight);
+}
+
+@function colorize($name) {
+  @return map-get((
+    black: hsla(0.000000deg, 0.000000%, 4.705882%, .9),
+    red: hsla(5.962733deg, 68.510638%, 53.921569%, .9),
+    green: hsla(77.938144deg, 44.292237%, 57.058824%, .9),
+    yellow: hsla(36.575342deg, 100.000000%, 71.372549%, .9),
+    blue: hsla(205.185185deg, 38.388626%, 58.627451%, .9),
+    magenta: hsla(338.305085deg, 100.000000%, 65.294118%, .9),
+    cyan: hsla(185.901639deg, 78.540773%, 54.313725%, .9),
+    white: hsla(30.000000deg, 16.666667%, 88.235294%, .9),
+
+    purple: hsla(243.214286deg, 58.333333%, 81.176471%, .9),
+
+    extra-lightgray: hsla(0.000000deg, 0.000000%, 93.333333%, .9),
+    lightgray: hsla(0.000000deg, 0.000000%, 89.803922%, .9),
+    gray: hsla(0.000000deg, 0.000000%, 80.000000%, .9),
+    darkgray: hsla(0.000000deg, 0.000000%, 66.666667%, .9),
+  ), $name);
+}

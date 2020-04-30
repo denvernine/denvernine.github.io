@@ -2,8 +2,9 @@
 title: index
 ---
 
-<a href="https://twitter.com/nkiril">twitter</a><br>
-<a href="https://www.instagram.com/hino_kun_desu/">instagram</a><br>
-<a href="https://www.facebook.com/ryuun.nakashima">facebook</a><br>
-<a href="https://en.gravatar.com/denvernine">gravatar</a><br>
-<a href="https://amzn.to/3abCcBx">amazon</a><br>
+<h2>contanct</h2>
+{% for account in site.data.accounts %}
+{{ account.service }}: <a href="{{ account.url }}">{{ account.username }}</a><br>
+{% endfor %}
+<h2>posts</h2>
+<a href="https://gist.github.com/denvernine">denvernine’s gists</a>

@@ -1,0 +1,39 @@
+@mixin position($position: null, $top: null, $right: null, $bottom: null, $left: null, $z-index: null) {
+  position: $position;
+
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+
+  /** logical property */
+  inset-block-start: $top;
+  inset-inline-end: $right;
+  inset-block-end: $bottom;
+  inset-inline-start: $left;
+
+  z-index: $z-index;
+}
+
+@mixin dimension($width: null, $height: null) {
+  width: $width;
+  height: $height;
+
+  /** logical property */
+  inline-size: $width;
+  block-size: $height;
+
+  @content;
+}
+
+@mixin direction($writing-mode: horizontal, $direction: ltr) {
+  direction: $direction;
+
+  @if $writing-mode == horizontal {
+    writing-mode: horizontal-tb;
+  }
+
+  @if $writing-mode == vertical {
+    writing-mode: vertical-rl;
+  }
+}

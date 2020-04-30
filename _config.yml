@@ -1,6 +1,12 @@
 # build settings
 sass:
     style: compressed
+markdown: kramdown
+kramdown:
+    input: GFM
+    auto_ids: true
+    enable_coderay: false
+    syntax_highlighter: +nil+
 
 # site settings
 lang: ja
@@ -10,11 +16,6 @@ timezone: Asia/Tokyo
 title: denvernine.
 description: &description you're under my control.
 since: 2019-12-24
-icon:
-  type: icon
-  mime_type: image/x-icon
-  path: /assets/images/favicon.ico
-  size: 16x16
 email: denvernine99@gmail.com
 phone: +818084115920
 twitter_username: nkiril
@@ -22,7 +23,7 @@ github_username:  denvernine
 related_post_count: 5
 
 # page settings
-permalink: /:year/:month/:day/:title
+permalink: /:title
 defaults:
     - scope:
         path: ''
@@ -36,3 +37,4 @@ defaults:
       values:
         layout: default
         description: *description
+        render_with_liquid: false

@@ -1,0 +1,24 @@
+/**
+ * @link https://hankchizljaw.com/wrote/a-modern-css-reset/
+ */
+dl[class],
+ol[class],
+ul[class] {
+  padding: 0;
+  list-style:none;
+}
+
+#{elements(sectioningRoot)},
+#{elements(headingContent)},
+blockquote,
+dl[class],
+dt,
+dd,
+figcaption,
+figure,
+ol[class],
+ul[class],
+li,
+p {
+  margin: 0;
+}

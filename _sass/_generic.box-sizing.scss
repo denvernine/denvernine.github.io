@@ -1,0 +1,14 @@
+/**
+ * @link https://css-tricks.com/box-sizing/
+ */
+html {
+  box-sizing: border-box;
+}
+
+@each $element in elements(all) {
+  #{$element},
+  #{$element}::before,
+  #{$element}::after {
+    box-sizing: inherit;
+  }
+}

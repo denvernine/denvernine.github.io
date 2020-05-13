@@ -4,9 +4,6 @@
 - service: facebook
   username: kitagawa ryuun
   url: https://www.facebook.com/kitagawa.ryuun
-- service: instagram
-  username: hino_kun_desu
-  url: https://www.instagram.com/hino_kun_desu/
 - service: gravatar
   username: denvernine
   url: https://en.gravatar.com/denvernine

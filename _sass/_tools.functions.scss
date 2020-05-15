@@ -12,16 +12,9 @@
   @return $result;
 }
 
-@function listFill($value, $end, $start: 1) {
-  $array: ();
-
-  @for $i from $start through $end {
-    $array: append($array, $value);
-  }
-
-  @return $array;
-}
-
+/**
+ * exclude html, meta, link, .etc
+ */
 @function elements($category) {
   /**
    * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element

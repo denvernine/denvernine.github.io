@@ -1,24 +1,27 @@
 /**
  * @link https://hankchizljaw.com/wrote/a-modern-css-reset/
+ * @link https://github.com/jensimmons/cssremedy
  */
-dl[class],
-ol[class],
-ul[class] {
-  padding: 0;
-  list-style:none;
+@media (prefers-reduced-motion: reduce) {
+  @each $element in elements(all) {
+    #{$element},
+    #{$element}::before,
+    #{$element}::after {
+      animation-duration: 0.001s !important;
+      transition-duration: 0.001s !important;
+    }
+  }
 }
 
-#{elements(sectioningRoot)},
-#{elements(headingContent)},
-blockquote,
-dl[class],
-dt,
-dd,
-figcaption,
-figure,
-ol[class],
-ul[class],
-li,
+body,
 p {
   margin: 0;
+}
+
+dl[class],
+ol[class],
+ul[class],
+nav ul {
+  padding: 0;
+  list-style:none;
 }

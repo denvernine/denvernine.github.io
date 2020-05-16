@@ -3,8 +3,10 @@ title: index
 ---
 
 <h2>contanct</h2>
-{% for account in site.data.accounts %}
-{{ account.service }}: <a href="{{ account.url }}">{{ account.username }}</a><br>
-{% endfor %}
+<address>
+  {% for account in site.data.accounts %}
+    {{ account.service }}: <a href="{{ account.url }}">{{ account.username }}</a>{% unless forloop.last %}<br>{% endunless %}
+  {% endfor %}
+</address>
 <h2>posts</h2>
 <a href="https://gist.github.com/denvernine">denvernine’s gists</a>

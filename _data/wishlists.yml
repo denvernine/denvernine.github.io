@@ -1,0 +1,10 @@
+- name: 分類前
+  url: https://www.amazon.co.jp/hz/wishlist/ls/FK02V4TR74LU?filter=unpurchased&sort=priority&viewType=list
+- name: キャンプ用品
+  url: https://www.amazon.co.jp/hz/wishlist/ls/1WMKZOICOQO89?filter=unpurchased&sort=price-asc&viewType=list
+- name: サバゲー用品
+  url: https://www.amazon.co.jp/hz/wishlist/ls/3QF0SONV61AW4?filter=unpurchased&sort=price-asc&viewType=list
+- name: 非電源系ゲーム
+  url: https://www.amazon.co.jp/hz/wishlist/ls/1D5QOEGGEFRQG?filter=unpurchased&sort=price-asc&viewType=list
+- name: 本
+  url: https://www.amazon.co.jp/hz/wishlist/ls/S9OX9PC7AXES?filter=unpurchased&sort=price-asc&viewType=list

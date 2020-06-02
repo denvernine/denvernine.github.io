@@ -8,5 +8,11 @@ title: index
     {{ account.service }}: <a href="{{ account.url }}">{{ account.username }}</a>{% unless forloop.last %}<br>{% endunless %}
   {% endfor %}
 </address>
+<h2>wishlists - amazon.co.jp</h2>
+<ul>
+  {% for list in site.data.wishlists %}
+    <li><a href="{{ list.url }}">{{ list.name }}</a>
+  {% endfor %}
+</ul>
 <h2>posts</h2>
 <a href="https://gist.github.com/denvernine">denvernine’s gists</a>

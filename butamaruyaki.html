@@ -22,6 +22,7 @@ layout: ~
         height: calc((100vw / 15) * 2);
         animation: rainbow 1s linear infinite;
         background-clip: text;
+        -webkit-background-clip: text;
         color: transparent;
         font: 700 calc(100vw / 15)/1 serif;
       }
@@ -30,6 +31,7 @@ layout: ~
         50% { transform: translateY(calc(100vw / 15)); }
         100% { transform: translateY(0rem); }
       }
+      .wave { display: contents; }
       .wave > span {
         display: inline-block;
         animation: wave 1s ease-in-out infinite;

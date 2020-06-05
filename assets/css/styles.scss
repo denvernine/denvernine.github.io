@@ -1,0 +1,239 @@
+---
+---
+
+@function listMerge($lists...) {
+  $result: ();
+
+  @each $list in $lists {
+    @if type-of($list) == string {
+      $result: append($result, $list);
+    } @else {
+      $result: join($result, $list);
+    }
+  }
+
+  @return $result;
+}
+
+@function elements($category) {
+  /**
+   * exclude html, meta, link, .etc
+   *
+   * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+   */
+  $sectioningRoot: body;
+  $contentSectioning: address, article, aside, footer, header, h1, h2, h3, h4, h5, h6, main, nav, section;
+  $textContent: blockquote, dd, div, dl, dt, figcaption, figure, hr, li, /* main, */ ol, p, pre, ul;
+  $inlineTextSemantics: a, abbr, br, cite, code, dfn, em, i, kbd, mark, q, s, samp, small, span, strong, sub, sup, time, u, var, wbr;
+  $imageAndMultimedia: audio, img, video;
+  $embeddedContent: iframe, picture, source;
+  $scripting: script;
+  $demarcatingEdits: del, ins;
+  $tableContent: caption, col, colgroup, table, tbody, td, tfoot, th, thead, tr;
+  $forms: button, label, input, optgroup, option, select, textarea;
+  $intaractiveElements: details, summary;
+
+  /**
+   * @link https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories
+   */
+  $headingContent: h1, h2, h3, h4, h5, h6;
+
+  @return map-get((
+    sectioningRoot: $sectioningRoot,
+    contentSectioning: $contentSectioning,
+    textContent: $textContent,
+    inlineTextSemantics: $inlineTextSemantics,
+    imageAndMultimedia: $imageAndMultimedia,
+    embeddedContent: $embeddedContent,
+    scripting: $scripting,
+    demarcatingEdits: $demarcatingEdits,
+    tableContent: $tableContent,
+    forms: $forms,
+    intaractiveElements: $intaractiveElements,
+    headingContent: $headingContent,
+    all: listMerge($sectioningRoot, $contentSectioning, $textContent, $inlineTextSemantics, $imageAndMultimedia, $embeddedContent, $scripting, $demarcatingEdits, $tableContent, $forms, $intaractiveElements),
+  ), $category);
+}
+
+
+@function fontWeight($wight) {
+  /**
+   * @link https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight
+   */
+  @return map-get((
+    thin: 100,
+    extra-light: 200,
+    light: 300,
+    normal: 400,
+    medium: 500,
+    semi-bold: 600,
+    bold: 700,
+    extra-bold: 800,
+    heavy: 900,
+  ), $wight);
+}
+
+@function colorize($name) {
+  @return map-get((
+    black: hsla(0.000000deg, 0.000000%, 4.705882%, .9),
+    red: hsla(5.962733deg, 68.510638%, 53.921569%, .9),
+    green: hsla(77.938144deg, 44.292237%, 57.058824%, .9),
+    yellow: hsla(36.575342deg, 100.000000%, 71.372549%, .9),
+    blue: hsla(205.185185deg, 38.388626%, 58.627451%, .9),
+    magenta: hsla(338.305085deg, 100.000000%, 65.294118%, .9),
+    cyan: hsla(185.901639deg, 78.540773%, 54.313725%, .9),
+    white: hsla(30.000000deg, 16.666667%, 88.235294%, .9),
+
+    purple: hsla(243.214286deg, 58.333333%, 81.176471%, .9),
+
+    extra-lightgray: hsla(0.000000deg, 0.000000%, 93.333333%, .9),
+    lightgray: hsla(0.000000deg, 0.000000%, 89.803922%, .9),
+    gray: hsla(0.000000deg, 0.000000%, 80.000000%, .9),
+    darkgray: hsla(0.000000deg, 0.000000%, 66.666667%, .9),
+  ), $name);
+}
+
+@mixin position($position: null, $top: null, $right: null, $bottom: null, $left: null, $z-index: null) {
+  position: $position;
+
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+
+  /** logical property */
+  inset-block-start: $top;
+  inset-inline-end: $right;
+  inset-block-end: $bottom;
+  inset-inline-start: $left;
+
+  z-index: $z-index;
+}
+
+@mixin dimension($width: null, $height: null) {
+  width: $width;
+  height: $height;
+
+  /** logical property */
+  inline-size: $width;
+  block-size: $height;
+
+  @content;
+}
+
+@mixin direction($writing-mode: horizontal, $direction: ltr) {
+  direction: $direction;
+
+  @if $writing-mode == horizontal {
+    writing-mode: horizontal-tb;
+  }
+
+  @if $writing-mode == vertical {
+    writing-mode: vertical-rl;
+  }
+}
+
+dl[class],
+ol[class],
+ul[class],
+nav ul {
+  padding: 0;
+  list-style:none;
+}
+
+/**
+ * @link https://css-tricks.com/box-sizing/
+ */
+:root {
+  box-sizing: border-box;
+}
+
+@each $element in elements(all) {
+  #{$element},
+  #{$element}::before,
+  #{$element}::after {
+    box-sizing: inherit;
+  }
+}
+
+body {
+  margin: 0 auto;
+  width: calc(100vw - (8vw * 2));
+  max-width: 80rem;
+  writing-mode: horizontal-tb;
+  font: 1rem/1.618 serif, sans-serif, monospace;
+  letter-spacing: .12rem;
+  word-spacing: .1618rem;
+  overflow-wrap: break-word;
+}
+
+h1 {
+  margin: 0.67rem 0;
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.17rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+h5 {
+  font-size: .83rem;
+}
+
+h6 {
+  font-size: .67rem;
+}
+
+p + p {
+  margin-block-start: 2rem;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+a:link {
+  color: #04c;
+}
+
+a:visited {
+  color: #609;
+}
+
+a:hover,
+a:focus,
+a:focus-within {
+  border-bottom: 1px solid;
+}
+
+a:active {
+  color: #f44;
+}
+
+audio,
+img,
+video,
+svg,
+canvas,
+iframe,
+embed,
+object {
+  display: block;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+img,
+video,
+svg,
+canvas {
+  height: auto;
+}

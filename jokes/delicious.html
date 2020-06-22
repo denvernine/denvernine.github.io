@@ -1,0 +1,95 @@
+---
+layout: ~
+permalink: /:basename
+title: おいしいものが食べたい！
+---
+<html lang="{{ site.lang }}" dir="{{ site.direction }}">
+  <head>
+    <meta charset="{{ site.charset }}">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="{{ site.description }}">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@{{ site.twitter_username }}">
+    <meta name="twitter:creator" content="@{{ site.twitter_username }}">
+    <meta property="og:title" content="{{ page.title }} | {{ site.title }}">
+    <meta property="og:description" content="{{ page.description }}">
+    <meta property="og:image" content="https://avatars2.githubusercontent.com/u/37843385">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <base href="{{ site.url }}">
+    <link rel="icon" type="image/png" sizes="420x420" href="https://avatars2.githubusercontent.com/u/37843385">
+    <link rel="canonical" href="{{ site.url }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@900&display=swap">
+    <style>
+      body {
+        color: darkblue;
+        font: 700 5vw/1 'M PLUS Rounded 1c',sans-serif,monospace,serif;
+      }
+      .rainbow {
+        background-image: linear-gradient(
+          to right,
+          red, red 10%,
+          rgb(255, 0, 255), rgb(255, 0, 255), 25%,
+          blue, blue 40%,
+          turquoise, turquoise 50%,
+          rgb(0, 255, 0), rgb(0, 255, 0) 80%,
+          yellow, yellow 90%,
+          red, red 100%
+        );
+        height: 50vh;
+        padding: 10% 5%;
+        position: relative;
+        width: 50vw;
+      }
+      span { display: inline-block; }
+      .slim { transform: scale(90%, 120%); }
+      @keyframes blink {
+        0% {
+          opacity:0;
+        }
+        30% {
+          opacity:1;
+        }
+      }
+      .blink { animation: blink 1.5s infinite; }
+      .arch {
+        position: absolute;
+        right: 15%;
+        bottom: 10%;
+      }
+      @keyframes arch-one {
+         10% { transform: rotate(-45deg) translate(-10%); }
+         90% { transform: rotate(-45deg) translate(-10%); }
+        100% { }
+      }
+      .arch > span:nth-child(01) { transform: translateX(150%); animation: arch-one 1s ease-in-out infinite; }
+      @keyframes arch-two {
+         20% { transform: rotate(-10deg) translate(0, -50%); }
+         90% { transform: rotate(-10deg) translate(0, -50%); }
+        100% { }
+      }
+      .arch > span:nth-child(02) { transform: translateX(50%); animation: arch-two 1s ease-in-out infinite; }
+      @keyframes arch-three {
+         30% { transform: rotate(10deg) translate(0, -50%); }
+         90% { transform: rotate(10deg) translate(0, -50%); }
+        100% { }
+      }
+      .arch > span:nth-child(03) { transform: translateX(-50%); animation: arch-three 1s ease-in-out infinite; }
+      @keyframes arch-four {
+         40% { transform: rotate(45deg) translate(10%); }
+         90% { transform: rotate(45deg) translate(10%); }
+        100% { }
+      }
+      .arch > span:nth-child(04) { transform: translateX(-150%); animation: arch-four 1s ease-in-out infinite; }
+    </style>
+  </head>
+  <body>
+    <div class="rainbow">
+      <p><span class="slim blink">7</span><span class="blink" style="animation-delay: .2s">月</span><span class="slim blink" style="animation-delay: .4s">5</span><span class="blink" style="animation-delay: .6s">日</span>
+      <p style="text-indent: 1em">作って<span style="width: 1em">&nbsp;</span>食べ<br>よ
+      <p class="arch"><span>新</span><span>宿</span><span>近</span><span>辺</span>
+      </p>
+    </div>
+  </body>
+</html>

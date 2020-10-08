@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <title>sokudoku sample</title>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <style>
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor(props)
+        {
+          super(props);
+
+          this.state = {
+            value: 'Please write an essay about your favorite DOM element.',
+            words: [],
+            word: '...',
+            speed: 300,
+          };
+
+          this.handleTextChange = this.handleTextChange.bind(this);
+          this.handleSpeedChange = this.handleSpeedChange.bind(this);
+        }
+        
+        componentDidMount()
+        {
+          this.intervalID = setInterval(
+            () => this.tick(),
+            this.state.speed
+          );
+        }
+        
+        componentWillUnmount()
+        {
+          clearInterval(this.intervalID);
+        }
+
+        handleTextChange(event)
+        {
+          this.setState({
+            value: event.target.value,
+            words: event.target.value.split(' '),
+          });
+        }
+        
+        handleSpeedChange(event)
+        {
+          clearInterval(this.intervalID);
+
+          this.setState({
+            speed: event.target.valueAsNumber,
+          });
+
+          this.intervalID = setInterval(
+            () => this.tick(),
+            this.state.speed
+          );
+        }
+        
+        tick()
+        {
+          this.setState({
+            word: this.state.words.shift(),
+          });
+        }
+  
+        render()
+        {
+          return (
+            <div>
+              <label>input text:<br />
+                <textarea rows="24"
+                          cols="80"
+                          value={this.state.value}
+                          onChange={this.handleTextChange} />
+              </label>
+              <input type="range"
+                     id="speed-meter"
+                     min="100"
+                     max="1000"
+                     step="100"
+                     defaultValue={this.state.speed}
+                     onInput={this.handleSpeedChange} />{this.state.speed}
+              <p>{this.state.word}</p>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+  </body>
+</html>

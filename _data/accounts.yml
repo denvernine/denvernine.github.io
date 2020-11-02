@@ -1,9 +1,6 @@
 - service: twitter
   username: nkiril
   url: https://twitter.com/nkiril
-- service: facebook
-  username: kitagawa ryuun
-  url: https://www.facebook.com/kitagawa.ryuun
 - service: gravatar
   username: denvernine
   url: https://en.gravatar.com/denvernine

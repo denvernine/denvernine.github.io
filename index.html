@@ -2,17 +2,25 @@
 title: index
 ---
 
-<h2>contanct</h2>
-<address>
-  {% for account in site.data.accounts %}
-    {{ account.service }}: <a href="{{ account.url }}">{{ account.username }}</a>{% unless forloop.last %}<br>{% endunless %}
-  {% endfor %}
-</address>
-<h2>wishlists - amazon.co.jp</h2>
-<ul class="">
-  {% for list in site.data.wishlists %}
-    <li><a href="{{ list.url }}">{{ list.name }}</a>
-  {% endfor %}
-</ul>
-<h2>posts</h2>
-<a href="https://gist.github.com/denvernine">denvernine’s gists</a>
+<section class="grid container">
+  <h2 class="grid item">contanct</h2>
+  <address class="grid item">
+    {% for account in site.data.accounts %}
+      {{ account.service }}: <a href="{{ account.url }}">{{ account.username }}</a>{% unless forloop.last %}<br>{% endunless %}
+    {% endfor %}
+  </address>
+</section>
+<section class="grid container">
+  <h2 class="grid item">wishlists - amazon.co.jp</h2>
+  <ul class="grid item">
+    {% for list in site.data.wishlists %}
+      <li><a href="{{ list.url }}">{{ list.name }}</a>
+    {% endfor %}
+  </ul>
+</section>
+<section class="grid container">
+  <h2 class="grid item">posts</h2>
+  <p class="grid item">
+    <a href="https://gist.github.com/denvernine">denvernine’s gists</a>
+  </p>
+</section>

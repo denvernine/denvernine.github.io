@@ -24,3 +24,11 @@ title: index
     <a href="https://gist.github.com/denvernine">denvernine’s gists</a>
   </p>
 </section>
+<section class="grid container">
+  <h2 class="grid item">apps</h2>
+  <ul class="grid item">
+    {% for service in site.data.services %}
+      <li><a href="{{ service.url }}">{{ service.name }}</a> - {{ service.description }}
+    {% endfor %}
+  </ul>
+</section>

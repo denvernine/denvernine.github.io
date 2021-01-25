@@ -28,7 +28,11 @@ title: index
   <h2 class="grid item">apps</h2>
   <ul class="grid item">
     {% for service in site.data.services %}
-      <li><a href="{{ service.url }}">{{ service.name }}</a> - {{ service.description }}
+      {% if service.deleted_at %}
+        <li><del datetime="{{ service.deleted_at }}"><a href="{{ service.url }}">{{ service.name }}</a> - {{ service.description }}</del> 公開停止
+      {% else %}
+        <li><a href="{{ service.url }}">{{ service.name }}</a> - {{ service.description }}
+      {% endif %}
     {% endfor %}
   </ul>
 </section>

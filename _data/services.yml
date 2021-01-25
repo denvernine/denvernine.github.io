@@ -1,3 +1,4 @@
-- name: suzume.
-  description: twitterのフォロワーから検索するやつ
+- name: フォロワーのツイートから検索するやつ
+  description: twitterのフォロワーのツイートから検索する
   url: https://suzume.herokuapp.com/
+  deleted_at: 2021-01-01

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>floating-label</title>
+    <style>
+      .form-row {
+        margin: 1rem;
+      }
+      .floating-label {
+        position: relative;
+      }
+      .floating-label_label {
+        position: absolute;
+        top: 0;
+        left: .25rem;
+        opacity: 60%;
+      }
+      .floating-label_input {
+        border: none;
+        border-block-end: .1rem solid black;
+      }
+      .floating-label_input + .floating-label_label {
+        transition: all 0.2s ease;
+      }
+      .floating-label_input:not(:placeholder-shown) + .floating-label_label {
+        transform: scale(.75) translateX(-1rem) translateY(-1rem);
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <p>文字が入力されて、プレイスホルダー文字列が表示されていない場合に発動。</p>
+    <div class="form-row">
+      <label class="floating-label">
+        <input class="floating-label_input" type="text" placeholder=" ">
+        <span class="floating-label_label">family name</span>
+      </label>
+      <label class="floating-label">
+        <input class="floating-label_input" type="text" placeholder=" ">
+        <span class="floating-label_label">given name</span>
+      </label>
+    </div>
+    <div class="form-row">
+      <label class="floating-label">
+        <input class="floating-label_input" type="text" placeholder=" ">
+        <span class="floating-label_label">address 1</span>
+      </label>
+    </div>
+    <div class="form-row">
+      <label class="floating-label">
+        <input class="floating-label_input" type="text" placeholder=" ">
+        <span class="floating-label_label">address 2</span>
+      </label>
+    </div>
+    <div class="form-row">
+      <label class="floating-label">
+        <input class="floating-label_input" type="text" placeholder=" ">
+        <span class="floating-label_label">address 3</span>
+      </label>
+    </div>
+  </body>
+</html>

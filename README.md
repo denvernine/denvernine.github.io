@@ -1,8 +1,18 @@
 # denvernine.github.io
 
-use [rbenv](https://github.com/rbenv/rbenv).
+## with docker
 
-## dev environment
+```sh
+$ git clone git://github.com/denvernine/denvernine.github.io.git pages
+$ docker run --rm --volume=pages:/usr/src/pages --workdir=/usr/src/pages ruby:latest \
+  bundle init \
+  && bundle config set path 'vendor/bundle' \
+  && bundle install
+```
+
+## with [rbenv](https://github.com/rbenv/rbenv).
+
+### dev environment
 
 ```sh
 $ cat /etc/system-release /etc/os-release
@@ -27,7 +37,7 @@ $ bundle -v
 Bundler version 2.1.1
 ```
 
-## install
+### install
 
 ```sh
 $ git clone git://github.com/denvernine/denvernine.github.io.git
@@ -36,13 +46,13 @@ $ bundle init \
   && bundle install
 ```
 
-## build
+### build
 
 ```sh
 $ bundle exec jekyll build
 ```
 
-### auto-regeneration
+#### auto-regeneration
 
 ```sh
 $ bundle exec jekyll serve \

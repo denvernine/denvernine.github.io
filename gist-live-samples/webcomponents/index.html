@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>create-page-with-webcomponents</title>
+  </head>
+  <body>
+    <custom-element>
+      <span slot="custom-element-text">this is custom element</span>
+      <span>this is not display</span>
+    </custom-element>
+
+    <div>
+      <a id="showA">show A</a> | <a id="showB">show B</a>
+    </div>
+
+    <custom-element id="A" text="this is A" style="display: none;"></custom-element>
+    <custom-element id="B" text="this is B" style="display: none;"></custom-element>
+
+    <template id="custom-element-template">
+      <p><slot name="custom-element-text">default text</slot></p>
+      <button>this is button</button>
+    </template>
+
+    <script>
+      (function() {
+        customElements.define('custom-element', class extends HTMLElement {
+          constructor() {
+            super();
+
+            const customElement = document.querySelector('#custom-element-template').content;
+
+            if (this.hasAttribute('text')) {
+              customElement.textContent = this.getAttribute('text');
+            }
+
+            const shadowRoot = this.attachShadow({mode: 'open'}).appendChild(customElement.cloneNode(true));
+          };
+        });
+      })();
+
+      const hidden = function(element) {
+        document.querySelectorAll(element).forEach(function(element) {
+          element.style.display = 'none';
+        });
+      };
+      const show = function(element) {
+        document.querySelector(element).style.display = 'block';
+      };
+
+      document.querySelector('#showA').onclick = function() {
+        hidden('custom-element[id]');
+        show('#A');
+      };
+      document.querySelector('#showB').onclick = function() {
+        hidden('custom-element[id]');
+        show('#B');
+      };
+    </script>
+  </body>
+</html>

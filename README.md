@@ -30,7 +30,7 @@ Bundler version 2.1.1
 ## install
 
 ```sh
-$ git clone https://github.com/denvernine/denvernine
+$ git clone git://github.com/denvernine/denvernine.github.io.git
 $ bundle init \
   && bundle config set path 'vendor/bundle' \
   && bundle install

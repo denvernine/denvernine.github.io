@@ -4,7 +4,7 @@ title: index
 
 <section class="grid container">
   <h2 class="grid item">identifier</h2>
-  <dl class="grid item" style="list-style: none;">
+  <dl class="grid item">
     <dt>GPG/PGP Key fingerprint
     <dd><code>F9DB 538B 65CA DC84 114F &nbsp;A858 C126 3854 F7D8 22DD</code>
     <dt>GPG/PGP Public Key
@@ -16,7 +16,7 @@ title: index
 <section class="grid container">
   <h2 class="grid item">contanct</h2>
   <address class="grid item">
-    <dl style="list-style: none;">
+    <dl class="grid item">
       {% for account in site.data.accounts %}
         {% if account.service %}<dt>{{ account.service }}{% endif %}
         <dd><a href="{{ account.url }}">{{ account.username }}</a>

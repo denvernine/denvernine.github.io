@@ -1,6 +1,9 @@
 - service: twitter
   username: nkiril
   url: https://twitter.com/nkiril
+- service: ~
+  username: denvernine
+  url: https://twitter.com/denvernine
 - service: gravatar
   username: denvernine
   url: https://en.gravatar.com/denvernine

@@ -28,7 +28,7 @@ title: index
   <h2 class="grid item">wishlists - amazon.co.jp</h2>
   <ul class="grid item">
     {% for list in site.data.wishlists %}
-      <li><a href="{{ list.url }}">{{ list.name }}</a>
+      <li><a rel="sponsored" href="{{ list.url }}">{{ list.name }}</a>
     {% endfor %}
   </ul>
 </section>

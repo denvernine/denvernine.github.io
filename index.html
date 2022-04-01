@@ -36,14 +36,14 @@ title: index
 </section>
 <section class="grid container">
   <h2 class="grid item">posts</h2>
-  <h3>recommend:</h3>
+  <h3 class="grid item">recommend:</h3>
   <ul class="grid item">
-    <li><a rel="noopener" href="https://gist.github.com/35217035f80a5fc29c310d0d390b5e69F">twitterの検索演算子</a>
+    <li><a rel="noopener" href="https://gist.github.com/35217035f80a5fc29c310d0d390b5e69">twitterの検索演算子</a>
   </ul>
-  <h3>latest 5 posts:</h3>
+  <h3 class="grid item">latest 5 posts:</h3>
   <ul class="grid item">
     {% for gist in site.data.gists %}
-      <li><a rel="noopener" href="{{ gist.url }}">{{ gist.title }}</a> (updated at: <time datetime="{{ gist.updated_at }}">{{ gist.updated_at | date: "%Y-%m-%d" }})
+      <li><time datetime="{{ gist.updated_at }}">{{ gist.updated_at | date: "%Y-%m-%d" }}</time> <a rel="noopener" href="{{ gist.url }}">{{ gist.title }}</a>
     {% endfor %}
   </ul>
 </section>

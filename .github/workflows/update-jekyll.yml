@@ -22,10 +22,10 @@ jobs:
       matrix:
         ruby-version: [ '3.0' ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: ${{ matrix.ruby-version }} 
+          ruby-version: ${{ matrix.ruby-version }}
       - name: update jekyll
         run: bundle update jekyll

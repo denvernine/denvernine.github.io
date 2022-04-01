@@ -13,9 +13,9 @@ jobs:
       uses: actions/checkout@master
     - id: step_two
       name: update gist list
-      uses: sergeysova/jq-action@v2.1.0
+      uses: mikefarah/yq@v4.24.2
       with:
         cmd: |
           curl -sSL -H 'Accept: application/vnd.github.v3+json' -- 'https://api.github.com/users/denvernine/gists?per_page=5&page=1' \
-          | jq '.[] | { title: .description, updated_at: .updated_at, url: .html_url }' \
+          | yq '.[] | [{ "title": .description, "updated_at": .updated_at, "url": .html_url }]' \
           > _data/posts.yaml

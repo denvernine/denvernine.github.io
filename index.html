@@ -6,11 +6,13 @@ title: index
   <h2 class="grid item">identifier</h2>
   <dl class="grid item">
     <dt>GPG/PGP Key fingerprint
-    <dd><code>F9DB 538B 65CA DC84 114F &nbsp;A858 C126 3854 F7D8 22DD</code>
-    <dt>GPG/PGP Public Key
-    <dd><a href="https://github.com/denvernine.gpg">github</a>
-    <dt>GPG Key IDs
-    <dd><a href="https://api.github.com/users/denvernine/gpg_keys">github</a>
+    <dd><code>F9DB 538B 65CA DC84 114F  A858 C126 3854 F7D8 22DD</code>
+    <dt>GPG/PGP Public Keys
+    <dd><a href="https://github.com/denvernine.gpg">github.com</a>
+    <dd><a href="https://api.github.com/users/denvernine/gpg_keys">api.github.com</a>
+    <dt>SSH Public Keys
+    <dd><a href="https://github.com/denvernine.keys">github.com</a>
+    <dd><a href="https://api.github.com/users/denvernine/keys">api.github.com</a>
   </dl>
 </section>
 <section class="grid container">
@@ -28,16 +30,24 @@ title: index
   <h2 class="grid item">wishlists - amazon.co.jp</h2>
   <ul class="grid item">
     {% for list in site.data.wishlists %}
-      <li><a rel="sponsored" href="{{ list.url }}">{{ list.name }}</a>
+      <li><a rel="noopener,sponsored" href="{{ list.url }}">{{ list.name }}</a>
     {% endfor %}
   </ul>
 </section>
 <section class="grid container">
   <h2 class="grid item">posts</h2>
-  <p class="grid item">
-    <a href="https://gist.github.com/denvernine">denvernine’s gists</a>
-  </p>
+  <h3>recommend:</h3>
+  <ul class="grid item">
+    <li><a rel="noopener" href="https://gist.github.com/35217035f80a5fc29c310d0d390b5e69F">twitterの検索演算子</a>
+  </ul>
+  <h3>latest 5 posts:</h3>
+  <ul class="grid item">
+    {% for gist in site.data.gists %}
+      <li><a rel="noopener" href="{{ gist.url }}">{{ gist.title }}</a> (updated at: <time datetime="{{ gist.updated_at }}">{{ gist.updated_at | date: "%Y-%m-%d" }})
+    {% endfor %}
+  </ul>
 </section>
+{% comment %}
 <section class="grid container">
   <h2 class="grid item">apps</h2>
   <ul class="grid item">
@@ -50,3 +60,4 @@ title: index
     {% endfor %}
   </ul>
 </section>
+{% endcomment %}

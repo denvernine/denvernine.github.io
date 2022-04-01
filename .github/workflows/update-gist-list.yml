@@ -10,12 +10,24 @@ jobs:
     steps:
     - id: step_one
       name: switch branch
-      uses: actions/checkout@master
+      uses: actions/checkout@v3
     - id: step_two
       name: get gist list
-      uses: stedolan/jq@master
+      run: |
+        curl -sSL -H 'Accept: application/vnd.github.v3+json' -- 'https://api.github.com/users/denvernine/gists?per_page=5&page=1' \
+        > _data/gists.json
+    - id: step_three
+      name: update gist list
+      uses: mikefarah/yq@v4.24.2
       with:
         cmd: |
-          curl -sSL -H 'Accept: application/vnd.github.v3+json' -- 'https://api.github.com/users/denvernine/gists?per_page=5&page=1' \
-          | jq '.[] | { title: .description, updated_at: .updated_at, url: .html_url }' \
-          > _data/posts.yaml
+          yq '.[] | [{ "title": .description, "updated_at": .updated_at, "url": .html_url }]' -- _data/gists.json \
+          > _data/gists.yaml
+    - id: step_four
+      name: push gist list
+      run: |
+        git config user.name denvernine
+        git config user.email denvernine99@gmail.com
+        git add _data/gists.yaml
+        git commit -m "update gist list"
+        git push

@@ -12,8 +12,8 @@ jobs:
       name: switch branch
       uses: actions/checkout@master
     - id: step_two
-      name: get gist list
-      uses: stedolan/jq@master
+      name: update gist list
+      uses: sergeysova/jq-action@v2.1.0
       with:
         cmd: |
           curl -sSL -H 'Accept: application/vnd.github.v3+json' -- 'https://api.github.com/users/denvernine/gists?per_page=5&page=1' \

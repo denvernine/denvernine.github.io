@@ -1,3 +1,7 @@
+---
+layout: ~
+permalink: /:basename
+---
 <html dir="ltr" style="width: 100vw;" lang="ja">
   <head>
     <meta charset="UTF-8">
@@ -17,7 +21,52 @@
     <script src="/script.js" defer></script>
 -->
     <style>
-      tbody th {
+      article {
+        display: contents;
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+        padding-inline-start: 1rem;
+        list-style: none;
+      }
+      nav ul {
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: space-around;
+      }
+      nav ul li {
+        box-sizing: border-box;
+        display: flex;
+        margin: 0;
+      }
+      nav ul li a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        padding-inline: 1rem;
+      }
+      table {
+        margin-block-start: 2rem;
+        border-collapse: collapse;
+      }
+      thead th {
+        border-block-end: .1rem gray solid;
+        font-weight: normal;
+      }
+      th {
+        word-break: keep-all;
+      }
+      td.left {
+        text-align: start;
+      }
+      td.center {
+        text-align: center;
+      }
+      td.right {
         text-align: end;
       }
       .text-devider {
@@ -38,99 +87,215 @@
         background-color: gray;
         flex-grow: 1;
       }
+      .flex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      .flex table {
+        margin-inline-start: 2rem;
+      }
     </style>
-  </head>
   <body>
     <header>
-      <h1>oo運送</h1>
-      <div style="display:contents">
+      <div class="flex" style="flex-wrap:nowrap;justify-content:space-between">
+        <h1>oo運送</h1>
         <p>
           お引越し専用ダイアル<br>
           受付時間: <time datetime="10:00+09:00">10:00</time>-<time datetime="18:00+09:00">19:00</time>
           <a href="tel:111">0120-xxx-xxx</a>
         </p>
-        <nav>
-          <ul>
-            <li><a href="#for-personal">個人向けプラン</a>
-            <li><a href="#for-business">企業向けプラン</a>
-            <li><a href="#club">モータースポーツチームについて</a>
-            <li><a href="#contact">お問い合わせ</a>
-          </ul>
-        </nav>
       </div>
+      <nav>
+        <ul>
+          <li><a href="#cost">料金概要</a>
+          <li><a href="#for-personal">個人向けプラン</a>
+          <li><a href="#for-business">企業向けプラン</a>
+          <li><a href="#contact">見積・お問い合わせ</a>
+          <li><a href="#club">モータースポーツチームについて</a>
+        </ul>
+      </nav>
     </header>
-    <div style="display:contents; ">
-      <img src="https://placehold.jp/1200x100.png?text=oo運送 あなたの大切なお荷物を格安でお運びします" width="1200" height="100" style="object-fit:cover;width: 100%;">
+    <div style="display:contents">
+      <img src="https://placehold.jp/1200x100.png?text=oo運送 あなたの大切なお荷物を格安でお運びします" style="object-fit:cover;width: 100%;" width="1200" height="100">
     </div>
     <main>
-      <article style="display:contents">
+      <article>
         <div class="text-devider">
-          <h2 id="#for-personal">個人向けプラン</h2>
+          <h2 id="cost">料金概要</h2>
         </div>
+        <h3>距離制運賃と時間制運賃</h3>
+        <blockquote>
+          <p>
+            例えばタクシーを利用した際、渋滞中の料金は経過時間で計算され、高速走行時の料金は走行距離で計算されるのが一般的です。
+          <p>
+            主に距離制運賃を適用させていただきますが、渋滞や混雑が予想されるエリアでの配送、荷扱い作業が複数もしくは長時間になるような配送には、時間制運賃を適用させていただくことがあります。
+          </p>
+          &mdash; <cite><a href="https://www.akabou.jp/person/fare/shutoken/">料金案内 - 赤帽</a></cite>
+        </blockquote>
+        ...「どちらか運賃の 高い/安い 方」「詳細はお気軽にお問い合わせください」等、文言は変える必要があります（もしくは上記部分は削る）。
+        <h4>距離制運賃</h4>
+        <p>距離計算はグーグルマップ（出発日時指定）でのルート検索結果（1km未満は四捨五入で計算）を使用します。高速道路使用時の料金はグーグルマップのルートで計算します。
+        <div class="flex">
+          <table>
+            <thead>
+              <tr>
+                <th>距離
+                <th>運賃（すべて税別）
+            <tbody>
+              <tr>
+                <th>20kmまで
+                <td class="right">4400円
+              <tr>
+                <th>21-50kmまで
+                <td class="right">180円（1kmあたり）
+              <tr>
+                <th>51-100kmまで
+                <td class="right">140円（1kmあたり）
+              <tr>
+                <th>101-150km（1kmごと）
+                <td class="right">110円（1kmあたり）
+              <tr>
+                <th>151km以上まで
+                <td class="right">100円（1kmあたり）
+          </table>
+        </div>
+        <h4>時間制運賃</h4>
+        <p>時間チャーターは最低2時間からで、待機・積込時間を含みます。
+        <div class="flex">
+          <table>
+            <thead>
+              <tr>
+                <th>時間
+                <th>運賃（すべて税別）
+            <tbody>
+              <tr>
+                <th>2時間（20km以内）
+                <td class="right">4400円
+              <tr>
+                <th>30分延長
+                <td class="right">1100円
+              <tr>
+                <th>超過時間（積込・積降）
+                <td class="right">500円（15分あたり）
+              <tr>
+                <th>超過時間（待機時間）
+                <td class="right">1000円（30分あたり）
+          </table>
+        </div>
+      </article>
+      <article>
+        <div class="text-devider">
+          <h2 id="for-personal">個人向けプラン</h2>
+        </div>
+        <p>日々の買い物や荷物受け取りの代行、引っ越しのお手伝いなどを行います。
+        <div class="flex">
           <table>
             <thead>
               <tr>
                 <th>プラン
-                <th>料金
+                <th>内容
             <tbody>
               <tr>
                 <th>買い物代行
-                <td>5000円～
+                <td>食品・日用品など、日々の買い物を代行いたします。
               <tr>
                 <th>二輪車輸送
-                <td>5万円～
+                <td>自転車から原動機付自転車・スクーター・大型バイク（要サイズ相談）まで、二輪車を輸送します。
               <tr>
                 <th>メルカリ等の落札品引き取り
-                <td>5000円～
+                <td>商品の受け取りを代行します。
               <tr>
                 <th>引っ越し等の荷物輸送
-                <td>5万円～
+                <td>引っ越しの際の家具家電の輸送を行います。必要な方には段ボールもご用意いたします（料金別）。
           </table>
-      </article>
-      <article style="display:contents">
-        <div class="text-devider">
-          <h2 id="#for-business">企業向けプラン</h2>
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>プラン
-              <th>料金
-          <tbody>
-            <tr>
-              <th>スポット配送
-              <td>10万円～
-            <tr>
-              <th>定期ルート配送
-              <td>10万円～
-        </table>
       </article>
-      <article style="display:contents">
+      <article>
         <div class="text-devider">
-          <h2 id="#club">モータースポーツチームについて</h2>
+          <h2 id="for-business">企業向けプラン</h2>
         </div>
-        <table>
-          <tbody>
-            <tr>
-              <th><time datetime="2000-03-01">2000-03-01</time>
-              <td><a href="https://note.com/">ooレースに参加しました！</a>
-            <tr>
-              <th><time datetime="2000-02-01">2000-02-01</time>
-              <td><a href="https://note.com/">チームスタッフ募集！</a>
-            <tr>
-              <th><time datetime="2000-01-01">2000-01-01</time>
-              <td><a href="https://note.com/">モータースポーツチーム設立！</a>
-        </table>
+        <blockquote>
+          <p>
+            当社の軽貨物チャーター便・スポット便は個人様・企業様を問わず、幅広くご利用いただけます。<br>
+            独自の低料金システムで企業の物流コストの削減をご提案いたします。大事なお荷物を迅速かつ丁寧に配送いたします。定期的なご利用はもちろん、1回のみのお申し込みにも対応可能です。即日、翌日のお届けも対応いたします。
+          <p>
+            安心してご利用いただけるよう輸送については、積荷の運送賠償保険に加入（300万円）しております。
+          </p>
+          &mdash; <cite><a href="https://www.tomas-express.com/charter-spot/">軽貨物のチャーター便・スポット便で運送コスト削減！｜ToMAS</a></cite>
+        </blockquote>
+        <div class="flex">
+          <table>
+            <thead>
+              <tr>
+                <th>プラン
+                <th>内容
+            <tbody>
+              <tr>
+                <th>スポット配送
+                <td>
+                  <ul>
+                    <li><q>まとまった量の荷物を送りたいけど、大型トラックでは大きすぎるし、コストがかかる</q>
+                    <li><q>自社の配送だけでは、間に合わない繁忙期に配送を手伝ってほしい</q>
+                    <li><q>小回りの利く軽貨物で荷物を早く届けてほしい</q>
+                    <li><q>定期的に荷物を引き取りに来てもらって、決まった時間に届けてほしい</q>
+                  </ul>
+                  など<q>定期的なご利用はもちろん、1回のみのお申し込みにも対応可能です。即日、翌日のお届けも対応いたします。</q>
+              <tr>
+                <th>定期ルート配送
+                <td>
+                  <ul>
+                    <li>書類やクリーニング済み衣類の集荷・輸送など、定期的に発生する運搬業務を行います。
+                  </ul>
+          </table>
+        </div>
+      </article>
+      <article>
+        <div class="text-devider">
+          <h2 id="contact">お問い合わせ</h2>
+        </div>
+        <p>見積やご質問等、お気軽にお問い合わせください。
+        <address>
+          <ul>
+            <li>mail: <a href="mailto:sample@example.com">sample@example.com</a>
+            <li>tel: <a href="tel:111">0120-xxx-xxx</a>（受付時間: <time datetime="10:00+09:00">10:00</time>-<time datetime="18:00+09:00">19:00</time>）
+          </ul>
+        </address>
+      </article>
+      <article>
+        <div class="text-devider">
+          <h2 id="club">モータースポーツチームについて</h2>
+        </div>
+        <p>
+          子供の頃から車が好きで、高校生の頃にはバイクでサーキットを走ったりもしていました。<br>
+          この活動を通して、ハンディキャップのある方々のモータースポーツ等に参加する道標になればとも考えています。
+        <p>
+          活動にあたり、運営スタッフ1名とコ・ドライバーを含むドライバー3名を募集しています。<br>
+          どちらも現状は金銭的な報酬はありませんが、ご興味のある方はぜひ<a href="https://note.com/">モータースポーツチーム概要</a>や<a href="https://note.com/">チームメイト募集</a>のページをご覧ください。
+        </p>
+        <div class="flex">
+          <table>
+            <tbody>
+              <tr>
+                <th><time datetime="2000-03-01">0000-00-00</time>
+                <td><a href="https://note.com/">この欄に活動履歴を最大5件くらいひょうじする</a>
+              <tr>
+                <th><time datetime="2000-04-01">2000-04-01</time>
+                <td><a href="https://note.com/">ooレースに参加しました！</a>
+              <tr>
+                <th><time datetime="2000-03-01">2000-03-01</time>
+                <td><a href="https://note.com/">ooレースに参加しました！</a>
+              <tr>
+                <th><time datetime="2000-02-01">2000-02-01</time>
+                <td><a href="https://note.com/">チームスタッフ募集！</a>
+              <tr>
+                <th><time datetime="2000-01-01">2000-01-01</time>
+                <td><a href="https://note.com/">モータースポーツチーム設立！</a>
+          </table>
+        </div>
       </article>
     </main>
-    <footer>
-      <address id="#contact">
-        <ul>
-          <li>mail: <a href="mailto:sample@example.com">sample@example.com</a>
-          <li>tel: <a href="tel:111">0120-xxx-xxx</a>（受付時間: <time datetime="10:00+09:00">10:00</time>-<time datetime="18:00+09:00">19:00</time>）
-        </ul>
-      </address>
-      <small>&copy; 2000-2022 by oo運送</small>
+    <footer style="margin-block-start:2rem;">
+      <small>© 2000-2022 by oo運送</small>
     </footer>
-  </body>
 </html>

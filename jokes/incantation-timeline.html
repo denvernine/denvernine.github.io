@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<style>
+:root {
+  --left-size: 22%;
+  --timeline-color: #c5c5c5;
+  --bg-color: white;
+  --fg-color: black;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-color);
+  color: var(--fg-color);
+  line-height: 1.5rem;
+}
+.timeline {
+  list-style: none;
+  border-inline-start: .1rem solid var(--timeline-color);
+  margin: 2rem 0 0 var(--left-size);
+  padding: 0 0 0 1rem;
+}
+.event {
+  margin-block-start: 2.5rem;
+  position: relative;
+}
+.event::before,
+.event::after {
+  position: absolute;
+  display: block;
+}
+.event::before {
+  top: 0;
+  content: attr(data-datetime);
+  color: var(--timeline-color);
+  text-align: right;
+  width: var(--left-size);
+  left: calc(var(--left-size) * -1 - 2rem);
+}
+.event::after {
+  content: '';
+  left: -1.35rem;
+  top: .2rem;
+  border: .1rem solid var(--timeline-color);
+  border-radius: 50%;
+  background: var(--bg-color);
+  padding: .2rem;
+}
+</style>
+
+<dl style="margin: 2rem 0 0 var(--left-size)">
+  <dt>ルオナン
+    <dd>主人公。女性
+  <dt>ドゥオドゥオ
+    <dd>ルオナンの娘
+  <dt>チーミン
+    <dd>ドゥオドゥオの里親。男性
+  <dt>アードン
+    <dd>ルオナンの父。故人
+</dl>
+
+<ol class="timeline">
+  <li class="event" data-datetime="6年前">アードンの故郷へ
+  <li>妊娠が発覚する。ルオナンは既に知っていた様子
+  <li>片耳のない少女（神に選ばれた子）に会う
+  <li>「絶対に入ってはいけない場所」に入る
+  <li>アードンの弟に腕を噛まれる
+  <li>アードンとその弟が死亡
+  <li>アードンの故郷から逃げる
+  <li class="event">「絶対に入ってはいけない場所」の映像をもって警察に相談する
+  <li>映像を見た警察官が死亡
+  <li class="event" data-datetime="出産直前">雲南の和尚から呪文の意味をきく
+  <li class="event" data-datetime="出産後">ドゥオドゥオを施設に預ける
+  <li class="event">主人公の両親が死亡する
+  <li class="event">ここまでの出来事をカウンセラーに相談する
+  <li class="event">ドゥオドゥオを引き取る
+  <li>ドゥオドゥオに本当の名前を教える
+  <li>異変が起こり始める
+  <li class="event">ドゥオドゥオが同級生の腕を噛む
+  <li>ドゥオドゥオが「顔なし悪者」を見る
+  <li class="event">ウサギのぬいぐるみにカメラを仕込む
+  <li class="event" data-datetime="2020年5月20日">ドゥオドゥオが霊的な腕につかまれそうになっているのを幼稚園の先生が目撃
+  <li class="event">ドゥオドゥオが「絶対に入ってはいけない場所」の映像を見る
+  <li>ドゥオドゥオが半身不随になる
+  <li class="event">ソーシャルワーカーのおばさん（シアさん？）が（おそらく）死亡
+  <li class="event">カウンセラーが「絶対に入ってはいけない場所」の映像を見る
+  <li class="event">チーミンと共にアードンの故郷へいこうとするがたどり着けない
+  <li>カウンセラー死亡
+  <li class="event">アーチン師匠からドゥオドゥオは7日間の断食するよう指示される
+  <li>チーミンが「絶対に入ってはいけない場所」の映像を調べる
+  <li class="event" data-datetime="断食から3日目">ドゥオドゥオに食事をさせる
+  <li>アーチン師匠死亡
+  <li class="event">チーミンが雲南の和尚から呪文の意味をきく
+  <li class="event">チーミン死亡
+  <li>チーミンから「絶対に入ってはいけない場所」の映像が送られてくる
+  <li class="event">（「顔なし悪者」と）ドゥオドゥオが片耳のない少女を発見する
+  <li class="event">片耳のない少女の耳を切り取る
+  <li class="event">暗黒仏母の顔を確認する
+</ol>

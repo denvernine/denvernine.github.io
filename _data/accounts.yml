@@ -7,3 +7,12 @@
 - service: gravatar
   username: denvernine
   url: https://en.gravatar.com/denvernine
+- service: mastodon
+  username: @nkiril@mstdn.jp
+  url: https://mstdn.jp/@nkiril
+- service: Misskey.io
+  username: @nkiril@misskey.io
+  url: https://misskey.io/@nkiril
+- service: nostr
+  username: ~
+  url: ~

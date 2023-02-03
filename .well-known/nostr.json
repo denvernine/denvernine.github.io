@@ -1,0 +1,14 @@
+{
+  "names": {
+    "denvernine": "05a945145bdf52c5dfc5da05e68e3a409372ba782ad326cee7dd87f6ef6c237d"
+  },
+  "relays": {
+    "05a945145bdf52c5dfc5da05e68e3a409372ba782ad326cee7dd87f6ef6c237d": [
+      "wss://relay.damus.io",
+      "wss://relay.snort.social",
+      "wss://eden.nostr.land",
+      "wss://nostr.milou.lol",
+      "wss://nostr.lnprivate.network"
+    ]
+  }
+}

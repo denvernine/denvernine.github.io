@@ -38,3 +38,4 @@ defaults:
         layout: default
         description: *description
         render_with_liquid: false
+include: ['.well-known']

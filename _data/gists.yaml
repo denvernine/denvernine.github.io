@@ -1,15 +1,35 @@
-- title: "nostrアカウントの取得とNIP-05 verification対応"
-  updated_at: "2023-02-03T10:58:33Z"
-  url: "https://gist.github.com/7c80c1640262f667cbf20786d0b2e601"
-- title: "Volta on Docker"
-  updated_at: "2023-01-16T14:20:33Z"
-  url: "https://gist.github.com/9004aa1e4e000b7f8feceb1b3ac795e5"
-- title: "重要なプロセスをOOM killerの対象にならないように制御する"
-  updated_at: "2022-11-25T03:09:04Z"
-  url: "https://gist.github.com/d0d01a2f12dc6ab81861a037a4a1e3af"
-- title: "kubernetesのリソースがTerminatingのまま残ってしまったときやること"
-  updated_at: "2022-11-25T02:32:26Z"
-  url: "https://gist.github.com/7c7bb26c1714ed31d28c9935bf10c5a8"
-- title: "VSCode + PlantUML"
-  updated_at: "2022-07-15T06:37:10Z"
-  url: "https://gist.github.com/a3640abe6670c529a3655e8957780335"
+[
+  {
+    "title": "nostrアカウントの取得とNIP-05 verification対応",
+    "updated_at": "2023-02-03T10:58:33Z",
+    "url": "https://gist.github.com/denvernine/7c80c1640262f667cbf20786d0b2e601"
+  }
+]
+[
+  {
+    "title": "Volta on Docker",
+    "updated_at": "2023-01-16T14:20:33Z",
+    "url": "https://gist.github.com/denvernine/9004aa1e4e000b7f8feceb1b3ac795e5"
+  }
+]
+[
+  {
+    "title": "重要なプロセスをOOM killerの対象にならないように制御する",
+    "updated_at": "2022-11-25T03:09:04Z",
+    "url": "https://gist.github.com/denvernine/d0d01a2f12dc6ab81861a037a4a1e3af"
+  }
+]
+[
+  {
+    "title": "kubernetesのリソースがTerminatingのまま残ってしまったときやること",
+    "updated_at": "2022-11-25T02:32:26Z",
+    "url": "https://gist.github.com/denvernine/7c7bb26c1714ed31d28c9935bf10c5a8"
+  }
+]
+[
+  {
+    "title": "VSCode + PlantUML",
+    "updated_at": "2022-07-15T06:37:10Z",
+    "url": "https://gist.github.com/denvernine/a3640abe6670c529a3655e8957780335"
+  }
+]

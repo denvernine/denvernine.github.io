@@ -1,18 +1,30 @@
-- service: twitter
+- service: x/twitter
   username: nkiril
   url: https://twitter.com/nkiril
 - service: ~
   username: denvernine
   url: https://twitter.com/denvernine
-- service: gravatar
+- service: bluesky
+  username: nkiril
+  url: https://bsky.app/profile/nkiril.bsky.social
+- service: ~
   username: denvernine
-  url: https://en.gravatar.com/denvernine
+  url: https://bsky.app/profile/denvernine.bsky.social
 - service: mastodon
   username: '@nkiril@mstdn.jp'
   url: https://mstdn.jp/@nkiril
-- service: Misskey.io
+- service: misskey.io
   username: '@nkiril@misskey.io'
   url: https://misskey.io/@nkiril
 - service: nostr
   username: npub1z4jm3c72m5h7sl27qt3xvxwgl75ty97tjvuq650hegfcsmvuhvfsmw5783
   url: nostr:npub1z4jm3c72m5h7sl27qt3xvxwgl75ty97tjvuq650hegfcsmvuhvfsmw5783
+- service: bondee
+  username: nkiril
+  url: ~
+- service: discord
+  username: nkiril#0170
+  url: https://discordapp.com/users/nkiril#0170
+- service: gravatar
+  username: denvernine
+  url: https://en.gravatar.com/denvernine
